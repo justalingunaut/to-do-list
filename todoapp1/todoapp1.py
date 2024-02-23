@@ -6,8 +6,16 @@ while True:
 
     match komut:
         case 'ekle':
-            yapilacak = input("Yapılacak listesine ekleme yapınız:")
+            yapilacak = input("Yapılacak listesine ekleme yapınız: ") + "\n"
+
+            file = open('yapilacaklar.txt', 'r')
+            yapilacaklar = file.readlines()
+            file.close()
+
             yapilacaklar.append(yapilacak)
+
+            file = open('yapilacaklar.txt', 'w')
+            file.writelines(yapilacaklar)
         case 'göster':
             for index, item in enumerate(yapilacaklar):
                 row = (f"{index + 1}-{item}")
